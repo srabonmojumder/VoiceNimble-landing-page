@@ -10,6 +10,7 @@
   document.addEventListener('DOMContentLoaded', init);
 
   function init() {
+    initThemeToggle();
     initHeader();
     initMobileMenu();
     initScrollReveal();
@@ -17,6 +18,42 @@
     initSmoothAnchors();
     initCursorGlow();
     initWidgets();
+    initBillingToggle();
+  }
+
+  /* ================================================================
+     THEME TOGGLE — dark / light mode with localStorage persistence
+     ================================================================ */
+  function initThemeToggle() {
+    var root = document.documentElement;
+    var stored = localStorage.getItem('vnTheme');
+
+    // Apply stored preference or default to dark
+    if (stored === 'light') {
+      root.setAttribute('data-theme', 'light');
+    }
+
+    // Bind both desktop and mobile toggles
+    var toggles = [
+      document.getElementById('themeToggle'),
+      document.getElementById('themeToggleMobile')
+    ];
+
+    toggles.forEach(function (btn) {
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var current = root.getAttribute('data-theme');
+        var next = current === 'light' ? 'dark' : 'light';
+
+        if (next === 'dark') {
+          root.removeAttribute('data-theme');
+        } else {
+          root.setAttribute('data-theme', 'light');
+        }
+
+        localStorage.setItem('vnTheme', next);
+      });
+    });
   }
 
   /* ================================================================
@@ -326,6 +363,46 @@
         chatWidget.classList.remove('open');
         chatBubble.classList.remove('active');
       });
+    }
+  }
+
+  /* ================================================================
+     BILLING TOGGLE — monthly / annual pricing switch
+     ================================================================ */
+  function initBillingToggle() {
+    var toggle = document.getElementById('billingToggle');
+    if (!toggle) return;
+
+    var labels = document.querySelectorAll('.billing-toggle__label');
+    var amounts = document.querySelectorAll('.price-card__amount[data-monthly]');
+    var isAnnual = false;
+
+    toggle.addEventListener('click', function () {
+      isAnnual = !isAnnual;
+      toggle.classList.toggle('active', isAnnual);
+
+      labels.forEach(function (label) {
+        var period = label.getAttribute('data-period');
+        label.classList.toggle('billing-toggle__label--active',
+          (isAnnual && period === 'annual') || (!isAnnual && period === 'monthly'));
+      });
+
+      amounts.forEach(function (el) {
+        var target = isAnnual ? el.getAttribute('data-annual') : el.getAttribute('data-monthly');
+        animatePrice(el, parseInt(el.textContent), parseInt(target));
+      });
+    });
+
+    function animatePrice(el, from, to) {
+      var duration = 400;
+      var start = performance.now();
+      function tick(now) {
+        var progress = Math.min((now - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - progress, 3);
+        el.textContent = Math.round(from + (to - from) * ease);
+        if (progress < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
     }
   }
 
