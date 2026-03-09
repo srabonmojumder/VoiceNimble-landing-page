@@ -1644,17 +1644,19 @@ h1, h2, h3, h4 {
   transition: opacity .3s ease;
 }
 .uc2-tab:hover {
-  border-color: rgba(168,85,247,.3);
+  border-color: rgba(208,141,21,.4);
+  background: rgba(208,141,21,.1);
   color: var(--text-1);
   transform: translateY(-1px);
 }
 .uc2-tab--active {
   border-color: transparent;
   color: #fff;
-  box-shadow: 0 4px 20px rgba(168,85,247,.3);
+  background: linear-gradient(135deg, #d08d15, #b87a0f);
+  box-shadow: 0 4px 24px rgba(208,141,21,.45), 0 0 0 1px rgba(208,141,21,.25);
 }
 .uc2-tab--active::before {
-  opacity: 1;
+  opacity: 0;
 }
 .uc2-tab span,
 .uc2-tab {
@@ -1667,6 +1669,9 @@ h1, h2, h3, h4 {
 }
 [data-theme="light"] .uc2-tab--active {
   color: #fff;
+  background: linear-gradient(135deg, #d08d15, #b87a0f);
+  border-color: transparent;
+  box-shadow: 0 4px 24px rgba(208,141,21,.3), 0 2px 8px rgba(0,0,0,.1);
 }
 
 /* ── Grid ── */
