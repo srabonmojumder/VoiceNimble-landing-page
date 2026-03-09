@@ -826,41 +826,81 @@
         <div class="section__head reveal">
           <span class="tag">Integrations</span>
           <h2 class="section__title">Connect the tools<br><span class="gradient-text">your team already uses.</span></h2>
+          <p class="section__sub">Plug into your existing stack in minutes — not months.</p>
         </div>
-        <div class="int-grid reveal">
-          <div class="int-card">
-            <h4>Voice &amp; Telephony</h4>
-            <p>Twilio, Custom SIP</p>
+
+        <!-- Orbit visual -->
+        <div class="intg reveal">
+          <div class="intg__orbit">
+            <div class="intg__ring intg__ring--1"></div>
+            <div class="intg__ring intg__ring--2"></div>
+            <div class="intg__hub">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke-width="1.5" stroke-linecap="round">
+                <defs><linearGradient id="hubGrad" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#CF8A02"/><stop offset="100%" stop-color="#E6A817"/></linearGradient></defs>
+                <circle cx="12" cy="12" r="3" stroke="url(#hubGrad)"/>
+                <path d="M12 1v4M12 19v4M1 12h4M19 12h4M4.22 4.22l2.83 2.83M16.95 16.95l2.83 2.83M4.22 19.78l2.83-2.83M16.95 7.05l2.83-2.83" stroke="url(#hubGrad)"/>
+              </svg>
+              <div class="intg__hub-pulse"></div>
+            </div>
           </div>
-          <div class="int-card">
-            <h4>AI Providers</h4>
-            <p>OpenAI, ElevenLabs, Vapi, Custom</p>
+
+          <!-- Floating nodes on orbit -->
+          <div class="intg__nodes">
+            <div class="intg__node intg__node--1" style="--n-color:#CF8A02;--n-rgb:207,138,2">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6A19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+              <span class="intg__node-label">Telephony</span>
+            </div>
+            <div class="intg__node intg__node--2" style="--n-color:#A78BFA;--n-rgb:167,139,250">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+              <span class="intg__node-label">AI Models</span>
+            </div>
+            <div class="intg__node intg__node--3" style="--n-color:#4ECDC4;--n-rgb:78,205,196">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+              <span class="intg__node-label">Messaging</span>
+            </div>
+            <div class="intg__node intg__node--4" style="--n-color:#F472B6;--n-rgb:244,114,182">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22 6 12 13 2 6"/></svg>
+              <span class="intg__node-label">Email</span>
+            </div>
+            <div class="intg__node intg__node--5" style="--n-color:#38BDF8;--n-rgb:56,189,248">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+              <span class="intg__node-label">Payments</span>
+            </div>
+            <div class="intg__node intg__node--6" style="--n-color:#FBBF24;--n-rgb:251,191,36">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+              <span class="intg__node-label">Auth &amp; SSO</span>
+            </div>
+            <div class="intg__node intg__node--7" style="--n-color:#10B981;--n-rgb:16,185,129">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z"/></svg>
+              <span class="intg__node-label">Storage</span>
+            </div>
+            <div class="intg__node intg__node--8" style="--n-color:#EF4444;--n-rgb:239,68,68">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+              <span class="intg__node-label">CRM / API</span>
+            </div>
           </div>
-          <div class="int-card">
-            <h4>Messaging</h4>
-            <p>WhatsApp Business API, Nexmo/Vonage</p>
-          </div>
-          <div class="int-card">
-            <h4>Email</h4>
-            <p>Gmail SMTP</p>
-          </div>
-          <div class="int-card">
-            <h4>Payments</h4>
-            <p>Stripe</p>
-          </div>
-          <div class="int-card">
-            <h4>Auth &amp; SSO</h4>
-            <p>Google OAuth, Facebook OAuth</p>
-          </div>
-          <div class="int-card">
-            <h4>Storage</h4>
-            <p>AWS S3, DigitalOcean Spaces</p>
-          </div>
-          <div class="int-card">
-            <h4>CRM / Data</h4>
-            <p>REST API — connect any CRM</p>
+
+          <!-- Connection lines (decorative) -->
+          <div class="intg__lines" aria-hidden="true">
+            <div class="intg__line intg__line--1"></div>
+            <div class="intg__line intg__line--2"></div>
+            <div class="intg__line intg__line--3"></div>
+            <div class="intg__line intg__line--4"></div>
           </div>
         </div>
+
+        <!-- Detail chips row -->
+        <div class="intg-chips reveal">
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#CF8A02"></span>Twilio &amp; Custom SIP</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#A78BFA"></span>OpenAI &amp; ElevenLabs</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#4ECDC4"></span>WhatsApp Business</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#F472B6"></span>Gmail SMTP</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#38BDF8"></span>Stripe</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#FBBF24"></span>Google &amp; Facebook OAuth</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#10B981"></span>AWS S3</div>
+          <div class="intg-chip"><span class="intg-chip__dot" style="background:#EF4444"></span>REST API</div>
+        </div>
+
         <p class="int-cta reveal">Don't see your tool? Our open API connects to anything. <a href="#">View API Docs &rarr;</a></p>
       </div>
     </section>

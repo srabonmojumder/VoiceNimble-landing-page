@@ -144,9 +144,9 @@
   background: rgba(var(--step-rgb), .06);
   border-color: rgba(var(--step-rgb), .12);
 }
-[data-theme="light"] .int-card {
-  background: var(--bg-raised);
-  border-color: var(--border);
+[data-theme="light"] .intg__node svg {
+  background: rgba(var(--n-rgb), .05);
+  border-color: rgba(var(--n-rgb), .1);
 }
 [data-theme="light"] .price-card {
   background: var(--bg-raised);
@@ -2353,39 +2353,179 @@ h1, h2, h3, h4 {
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    INTEGRATIONS
    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-.int-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
+/* ── Orbit wrapper ── */
+.intg {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  aspect-ratio: 1;
+  margin: 0 auto 3rem;
 }
-@media (max-width: 768px) { .int-grid { grid-template-columns: repeat(2, 1fr); } }
 
-.int-card {
-  padding: 1.5rem;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-md);
-  transition: var(--transition);
+/* ── Center hub ── */
+.intg__orbit {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.int-card:hover {
-  background: var(--bg-card-hover);
-  border-color: var(--border-hover);
-  transform: translateY(-2px);
+.intg__hub {
+  position: relative;
+  z-index: 3;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: rgba(207,138,2,.08);
+  border: 1.5px solid rgba(207,138,2,.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.int-card h4 {
-  font-size: .875rem;
-  font-weight: 600;
-  margin-bottom: .375rem;
+.intg__hub-pulse {
+  position: absolute;
+  inset: -10px;
+  border-radius: 50%;
+  border: 1px solid rgba(207,138,2,.12);
+  animation: secPulse 3s ease-out infinite;
 }
-.int-card p {
-  font-size: .75rem;
-  color: var(--text-3);
+
+/* ── Orbit rings ── */
+.intg__ring {
+  position: absolute;
+  border-radius: 50%;
+  border: 1px dashed rgba(255,255,255,.05);
+  animation: intgSpin 60s linear infinite;
 }
+.intg__ring--1 {
+  width: 65%;
+  height: 65%;
+  border-color: rgba(207,138,2,.08);
+}
+.intg__ring--2 {
+  width: 92%;
+  height: 92%;
+  border-color: rgba(255,255,255,.04);
+  animation-direction: reverse;
+  animation-duration: 90s;
+}
+@keyframes intgSpin {
+  to { transform: rotate(360deg); }
+}
+
+/* ── Floating nodes ── */
+.intg__nodes {
+  position: absolute;
+  inset: 0;
+}
+.intg__node {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .4rem;
+  color: var(--n-color);
+  transition: all .4s ease;
+  cursor: default;
+  z-index: 2;
+}
+.intg__node svg {
+  width: 42px;
+  height: 42px;
+  padding: 11px;
+  border-radius: 14px;
+  background: rgba(var(--n-rgb), .06);
+  border: 1px solid rgba(var(--n-rgb), .14);
+  transition: all .4s ease;
+}
+.intg__node:hover svg {
+  background: rgba(var(--n-rgb), .14);
+  border-color: rgba(var(--n-rgb), .3);
+  transform: scale(1.12);
+  box-shadow: 0 0 24px rgba(var(--n-rgb), .15);
+}
+.intg__node-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: .65rem;
+  font-weight: 700;
+  letter-spacing: .03em;
+  color: var(--text-2);
+  white-space: nowrap;
+  transition: color .3s ease;
+}
+.intg__node:hover .intg__node-label {
+  color: var(--n-color);
+}
+
+/* ── Node positions (8 around a circle) ── */
+.intg__node--1 { top: 2%;   left: 50%;  transform: translateX(-50%); }
+.intg__node--2 { top: 14%;  right: 8%;  }
+.intg__node--3 { top: 45%;  right: 0;   transform: translateY(-50%); }
+.intg__node--4 { bottom: 14%; right: 8%; }
+.intg__node--5 { bottom: 2%; left: 50%; transform: translateX(-50%); }
+.intg__node--6 { bottom: 14%; left: 8%;  }
+.intg__node--7 { top: 45%;  left: 0;    transform: translateY(-50%); }
+.intg__node--8 { top: 14%;  left: 8%;   }
+
+/* ── Connection lines (decorative beams) ── */
+.intg__lines {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.intg__line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  height: 1px;
+  width: 38%;
+  transform-origin: 0 0;
+  background: linear-gradient(90deg, rgba(207,138,2,.15), transparent);
+}
+.intg__line--1 { transform: rotate(0deg); }
+.intg__line--2 { transform: rotate(90deg); }
+.intg__line--3 { transform: rotate(180deg); }
+.intg__line--4 { transform: rotate(270deg); }
+
+/* ── Detail chips ── */
+.intg-chips {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: .5rem;
+  margin-bottom: 2rem;
+}
+.intg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .4rem .85rem;
+  border-radius: 99px;
+  background: rgba(255,255,255,.03);
+  border: 1px solid rgba(255,255,255,.06);
+  font-size: .7rem;
+  font-weight: 500;
+  color: var(--text-2);
+  transition: all .3s ease;
+}
+.intg-chip:hover {
+  background: rgba(255,255,255,.06);
+  border-color: rgba(255,255,255,.12);
+  transform: translateY(-1px);
+}
+.intg-chip__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+/* ── CTA ── */
 .int-cta {
   text-align: center;
   font-size: .875rem;
   color: var(--text-3);
-  margin-top: 2rem;
+  margin-top: 1.5rem;
 }
 .int-cta a {
   color: var(--accent);
@@ -2393,6 +2533,30 @@ h1, h2, h3, h4 {
   transition: color var(--transition);
 }
 .int-cta a:hover { color: #E6A817; }
+
+/* ── Light theme ── */
+[data-theme="light"] .intg__hub {
+  background: rgba(207,138,2,.06);
+}
+[data-theme="light"] .intg__ring--1 { border-color: rgba(207,138,2,.06); }
+[data-theme="light"] .intg__ring--2 { border-color: rgba(0,0,0,.04); }
+[data-theme="light"] .intg-chip {
+  background: rgba(0,0,0,.03);
+  border-color: rgba(0,0,0,.06);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .intg { max-width: 400px; }
+  .intg__node svg { width: 36px; height: 36px; padding: 9px; border-radius: 10px; }
+  .intg__node-label { font-size: .55rem; }
+}
+@media (max-width: 480px) {
+  .intg { max-width: 300px; }
+  .intg__node svg { width: 30px; height: 30px; padding: 7px; border-radius: 8px; }
+  .intg__node-label { display: none; }
+  .intg-chip { font-size: .6rem; padding: .3rem .65rem; }
+}
 
 /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
    PRICING
