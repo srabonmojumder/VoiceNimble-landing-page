@@ -21,7 +21,7 @@
     initBillingToggle();
     initUseCaseTabs();
     initFeatureShowcase();
-    initHiwTimeline();
+    // Timeline connectors are CSS-only now
   }
 
   /* ================================================================
