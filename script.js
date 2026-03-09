@@ -21,6 +21,7 @@
     initBillingToggle();
     initUseCaseTabs();
     initFeatureShowcase();
+    initHiwTimeline();
   }
 
   /* ================================================================
@@ -443,6 +444,23 @@
         });
       });
     });
+  }
+
+  /* ================================================================
+     HOW IT WORKS — Timeline fill on scroll
+     ================================================================ */
+  function initHiwTimeline() {
+    var hiw = document.querySelector('.hiw');
+    if (!hiw) return;
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          hiw.classList.add('revealed');
+          observer.unobserve(hiw);
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(hiw);
   }
 
   /* ================================================================
