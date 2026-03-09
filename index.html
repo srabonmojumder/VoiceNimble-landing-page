@@ -1019,38 +1019,107 @@
     </section>
 
     <!-- ===== SECURITY ===== -->
-    <section class="section">
+    <section class="section" id="security">
       <div class="container">
         <div class="section__head reveal">
           <span class="tag">Security</span>
           <h2 class="section__title">Enterprise-grade security.<br><span class="gradient-text">Built in from day one.</span></h2>
+          <p class="section__sub">Your data is protected with industry-leading protocols at every layer.</p>
         </div>
-        <div class="security-grid reveal">
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            Role-based access control (RBAC)
+
+        <div class="sec-bento">
+          <!-- Hero card — spans 2 rows on left -->
+          <div class="sec-hero reveal">
+            <div class="sec-hero__glow"></div>
+            <div class="sec-hero__shield">
+              <svg width="64" height="64" viewBox="0 0 24 24" fill="none" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+                <defs>
+                  <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="#CF8A02"/>
+                    <stop offset="100%" stop-color="#E6A817"/>
+                  </linearGradient>
+                </defs>
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke="url(#shieldGrad)" fill="rgba(207,138,2,.06)"/>
+                <polyline points="9 12 11 14 15 10" stroke="url(#shieldGrad)"/>
+              </svg>
+              <div class="sec-hero__pulse"></div>
+              <div class="sec-hero__pulse sec-hero__pulse--delay"></div>
+            </div>
+            <h3 class="sec-hero__title">Zero-trust<br>architecture</h3>
+            <p class="sec-hero__desc">Every request is verified. Every connection is encrypted. Every action is logged.</p>
+            <div class="sec-hero__status">
+              <span class="sec-hero__dot"></span>
+              All systems protected
+            </div>
           </div>
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
-            Bearer token API authentication
+
+          <!-- Right-side feature cells -->
+          <div class="sec-cell reveal">
+            <div class="sec-cell__num"></div>
+            <div class="sec-cell__body">
+              <h4 class="sec-cell__title">Role-Based Access</h4>
+              <p class="sec-cell__desc">Fine-grained RBAC — every team member gets exactly the permissions they need.</p>
+            </div>
+            <div class="sec-cell__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
           </div>
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
-            HMAC-signed webhook payloads
+
+          <div class="sec-cell reveal">
+            <div class="sec-cell__num"></div>
+            <div class="sec-cell__body">
+              <h4 class="sec-cell__title">API Authentication</h4>
+              <p class="sec-cell__desc">Bearer tokens with auto-rotation and rate limiting on every endpoint.</p>
+            </div>
+            <div class="sec-cell__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/></svg>
+            </div>
           </div>
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg>
-            Encrypted data storage (AWS S3)
+
+          <div class="sec-cell reveal">
+            <div class="sec-cell__num"></div>
+            <div class="sec-cell__body">
+              <h4 class="sec-cell__title">Signed Webhooks</h4>
+              <p class="sec-cell__desc">HMAC-signed payloads verify every event is authentic and untampered.</p>
+            </div>
+            <div class="sec-cell__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><polyline points="20 6 9 17 4 12"/></svg>
+            </div>
           </div>
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
-            Google OAuth 2.0 SSO
+
+          <div class="sec-cell reveal">
+            <div class="sec-cell__num"></div>
+            <div class="sec-cell__body">
+              <h4 class="sec-cell__title">Encrypted Storage</h4>
+              <p class="sec-cell__desc">AES-256 at rest on AWS S3, TLS 1.3 in transit — no exceptions.</p>
+            </div>
+            <div class="sec-cell__icon">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0110 0v4"/><circle cx="12" cy="16" r="1"/></svg>
+            </div>
           </div>
-          <div class="security-item">
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#CF8A02" stroke-width="2" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
-            Activity logging &amp; audit trails
+
+          <!-- Bottom wide cards -->
+          <div class="sec-wide reveal">
+            <div class="sec-wide__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M16 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="8.5" cy="7" r="4"/><polyline points="17 11 19 13 23 9"/></svg>
+            </div>
+            <div>
+              <h4 class="sec-wide__title">OAuth 2.0 SSO</h4>
+              <p class="sec-wide__desc">Google OAuth single sign-on for seamless, secure team onboarding.</p>
+            </div>
+          </div>
+
+          <div class="sec-wide reveal">
+            <div class="sec-wide__icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            </div>
+            <div>
+              <h4 class="sec-wide__title">Audit Trails</h4>
+              <p class="sec-wide__desc">Complete activity logging with timestamps, user actions, and searchable history.</p>
+            </div>
           </div>
         </div>
+
       </div>
     </section>
 
