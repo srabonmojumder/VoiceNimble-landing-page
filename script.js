@@ -19,6 +19,7 @@
     initCursorGlow();
     initWidgets();
     initBillingToggle();
+    initUseCaseTabs();
   }
 
   /* ================================================================
@@ -404,6 +405,36 @@
       }
       requestAnimationFrame(tick);
     }
+  }
+
+  /* ================================================================
+     USE CASES TABS — filter cards by category
+     ================================================================ */
+  function initUseCaseTabs() {
+    var tabs = document.querySelectorAll('.uc2-tab');
+    var items = document.querySelectorAll('.uc2-item');
+    if (!tabs.length) return;
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var cat = tab.getAttribute('data-uc');
+
+        // Update active tab
+        tabs.forEach(function (t) { t.classList.remove('uc2-tab--active'); });
+        tab.classList.add('uc2-tab--active');
+
+        // Filter items
+        items.forEach(function (item, i) {
+          var itemCat = item.getAttribute('data-uc-cat');
+          if (cat === 'all' || itemCat === cat) {
+            item.classList.remove('uc2-item--hidden');
+            item.style.animationDelay = (i * 0.08) + 's';
+          } else {
+            item.classList.add('uc2-item--hidden');
+          }
+        });
+      });
+    });
   }
 
 })();
