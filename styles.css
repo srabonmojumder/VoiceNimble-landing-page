@@ -169,18 +169,72 @@
 [data-theme="light"] .price-card {
   background: var(--bg-raised);
   border-color: var(--border);
-  box-shadow: 0 1px 3px rgba(0,0,0,.04);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+}
+[data-theme="light"] .price-card:hover {
+  border-color: rgba(168,85,247,.2);
+  box-shadow: 0 12px 40px rgba(0,0,0,.1), 0 0 30px rgba(168,85,247,.06);
 }
 [data-theme="light"] .price-card__inner {
   background: var(--bg-raised);
   border-color: var(--border);
 }
 [data-theme="light"] .price-card--featured {
-  box-shadow: 0 8px 40px rgba(168,85,247,.1);
+  box-shadow: 0 8px 40px rgba(168,85,247,.12);
+}
+[data-theme="light"] .price-card--featured:hover {
+  box-shadow: 0 16px 50px rgba(168,85,247,.18), 0 0 60px rgba(236,72,153,.08);
 }
 [data-theme="light"] .price-card--featured .price-card__inner {
   background: #fff;
   border-color: rgba(168,85,247,.3);
+}
+/* Light mode buttons */
+[data-theme="light"] .btn--outline {
+  background: rgba(0,0,0,.02);
+  border-color: rgba(0,0,0,.12);
+  color: var(--text-1);
+  backdrop-filter: none;
+}
+[data-theme="light"] .btn--outline:hover {
+  background: rgba(168,85,247,.06);
+  border-color: rgba(168,85,247,.4);
+  color: #7c3aed;
+  box-shadow: 0 0 20px rgba(168,85,247,.1), 0 4px 12px rgba(0,0,0,.06);
+}
+[data-theme="light"] .price-card .btn--outline {
+  background: rgba(0,0,0,.02);
+  border-color: rgba(0,0,0,.1);
+  color: var(--text-1);
+}
+[data-theme="light"] .price-card .btn--outline:hover {
+  background: rgba(168,85,247,.06);
+  border-color: rgba(168,85,247,.45);
+  color: #7c3aed;
+  box-shadow: 0 0 20px rgba(168,85,247,.1), 0 4px 12px rgba(0,0,0,.08);
+}
+[data-theme="light"] .btn--glow {
+  box-shadow: 0 4px 16px rgba(168,85,247,.2), 0 2px 8px rgba(0,0,0,.08);
+}
+[data-theme="light"] .btn--glow:hover {
+  box-shadow: 0 8px 30px rgba(168,85,247,.3), 0 4px 12px rgba(0,0,0,.1);
+}
+[data-theme="light"] .btn--glass {
+  background: rgba(0,0,0,.03);
+  border-color: rgba(0,0,0,.1);
+  color: var(--text-1);
+}
+[data-theme="light"] .btn--glass:hover {
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.15);
+}
+[data-theme="light"] .btn--ghost {
+  border-color: rgba(0,0,0,.1);
+  color: var(--text-1);
+}
+[data-theme="light"] .btn--ghost:hover {
+  border-color: rgba(0,0,0,.2);
+  color: var(--text-1);
 }
 [data-theme="light"] .billing-toggle {
   background: rgba(0,0,0,.03);
@@ -481,11 +535,15 @@ h1, h2, h3, h4 {
   gap: .5rem;
   font-family: inherit;
   font-weight: 600;
+  font-size: .875rem;
+  padding: .75rem 1.5rem;
+  border-radius: var(--radius-md);
   border: none;
   cursor: pointer;
   text-decoration: none;
   transition: var(--transition);
   white-space: nowrap;
+  letter-spacing: -.01em;
 }
 
 .btn--sm  { padding: .625rem 1.25rem; font-size: .875rem; border-radius: var(--radius-md); }
@@ -536,14 +594,16 @@ h1, h2, h3, h4 {
 }
 
 .btn--outline {
-  background: transparent;
+  background: rgba(255,255,255,.03);
   color: var(--text-2);
   border: 1px solid var(--border);
+  backdrop-filter: blur(6px);
 }
 .btn--outline:hover {
-  border-color: var(--border-hover);
-  background: rgba(255,255,255,.04);
+  border-color: rgba(168,85,247,.4);
+  background: rgba(168,85,247,.06);
   color: var(--text-1);
+  box-shadow: 0 0 20px rgba(168,85,247,.08);
 }
 
 .btn--ghost {
@@ -1672,8 +1732,8 @@ h1, h2, h3, h4 {
 .pricing-grid {
   display: grid;
   grid-template-columns: 1fr 1.15fr 1fr;
-  gap: 1.5rem;
-  max-width: 1060px;
+  gap: 1.75rem;
+  max-width: 1100px;
   margin: 0 auto;
   align-items: center;
   position: relative;
@@ -1687,7 +1747,7 @@ h1, h2, h3, h4 {
 .price-card {
   position: relative;
   border-radius: var(--radius-xl);
-  transition: var(--transition);
+  transition: transform .35s cubic-bezier(.4,0,.2,1), box-shadow .35s ease, border-color .3s ease;
   overflow: hidden;
   background: var(--bg-card);
   border: 1px solid var(--border);
@@ -1698,7 +1758,7 @@ h1, h2, h3, h4 {
   border-radius: inherit;
   opacity: 0;
   transition: opacity .5s ease;
-  background: radial-gradient(circle at 50% 0%, rgba(168,85,247,.08), transparent 60%);
+  background: radial-gradient(ellipse at 50% -20%, rgba(168,85,247,.1), transparent 65%);
   pointer-events: none;
   z-index: 0;
 }
@@ -1706,29 +1766,30 @@ h1, h2, h3, h4 {
   opacity: 1;
 }
 .price-card:hover {
-  border-color: var(--border-hover);
-  transform: translateY(-6px);
-  box-shadow: 0 20px 60px rgba(0,0,0,.2);
+  border-color: rgba(168,85,247,.25);
+  transform: translateY(-8px);
+  box-shadow: 0 24px 64px rgba(0,0,0,.25), 0 0 40px rgba(168,85,247,.06);
 }
 
 /* Featured Card */
 .price-card--featured {
   border: none;
   background: none;
-  padding: 1px;
-  background: linear-gradient(170deg, rgba(168,85,247,.6), rgba(236,72,153,.4), rgba(6,182,212,.3));
-  box-shadow: 0 0 50px rgba(168,85,247,.1), 0 0 100px rgba(236,72,153,.05);
+  padding: 2px;
+  background: linear-gradient(170deg, rgba(168,85,247,.65), rgba(236,72,153,.45), rgba(6,182,212,.35));
+  box-shadow: 0 0 50px rgba(168,85,247,.12), 0 0 100px rgba(236,72,153,.06);
+  transform: scale(1.02);
 }
 .price-card--featured .price-card__inner {
   background: var(--bg-raised);
-  border-radius: calc(var(--radius-xl) - 1px);
+  border-radius: calc(var(--radius-xl) - 2px);
 }
 .price-card--featured:hover {
-  box-shadow: 0 0 60px rgba(168,85,247,.18), 0 0 120px rgba(236,72,153,.1);
-  transform: translateY(-8px);
+  box-shadow: 0 0 70px rgba(168,85,247,.22), 0 0 120px rgba(236,72,153,.12);
+  transform: scale(1.02) translateY(-8px);
 }
 .price-card__glow--featured {
-  background: radial-gradient(circle at 50% 0%, rgba(168,85,247,.15), rgba(236,72,153,.08), transparent 60%);
+  background: radial-gradient(ellipse at 50% -10%, rgba(168,85,247,.18), rgba(236,72,153,.08), transparent 65%);
 }
 .price-card--featured:hover .price-card__glow--featured {
   opacity: 1;
@@ -1737,7 +1798,8 @@ h1, h2, h3, h4 {
 /* Ribbon */
 .price-card__ribbon {
   position: absolute;
-  top: 16px; right: -32px;
+  top: 28px;
+  right: -47px;
   padding: .3125rem 2.5rem;
   font-size: .625rem;
   font-weight: 700;
@@ -1752,7 +1814,7 @@ h1, h2, h3, h4 {
 
 /* Card Inner */
 .price-card__inner {
-  padding: 2.5rem 2rem;
+  padding: 2.75rem 2.25rem;
   position: relative;
   z-index: 1;
   border-radius: var(--radius-xl);
@@ -1858,19 +1920,20 @@ h1, h2, h3, h4 {
 .price-card__list li {
   display: flex;
   align-items: center;
-  gap: .625rem;
+  gap: .75rem;
   font-size: .8125rem;
-  padding: .4375rem 0;
+  padding: .5rem 0;
   color: var(--text-2);
+  line-height: 1.4;
 }
 .price-card__check {
-  width: 18px; height: 18px;
+  width: 20px; height: 20px;
   flex-shrink: 0;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(100,116,139,.08);
+  background: rgba(100,116,139,.1);
   position: relative;
 }
 .price-card__check::after {
@@ -1882,10 +1945,40 @@ h1, h2, h3, h4 {
   background-size: contain;
 }
 .price-card__check--accent {
-  background: rgba(168,85,247,.1);
+  background: rgba(168,85,247,.12);
 }
 .price-card__check--accent::after {
   background-image: url("data:image/svg+xml,%3Csvg width='10' height='10' viewBox='0 0 24 24' fill='none' stroke='%23a855f7' stroke-width='3' stroke-linecap='round' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+}
+
+/* Pricing Card Buttons */
+.price-card .btn {
+  margin-top: auto;
+  font-weight: 700;
+  padding: .875rem 1.5rem;
+  font-size: .875rem;
+  border-radius: var(--radius-md);
+  letter-spacing: .01em;
+}
+.price-card .btn--outline {
+  background: rgba(255,255,255,.02);
+  border: 1.5px solid var(--border);
+}
+.price-card .btn--outline:hover {
+  border-color: rgba(168,85,247,.5);
+  background: rgba(168,85,247,.08);
+  color: #fff;
+  box-shadow: 0 0 24px rgba(168,85,247,.12), 0 4px 12px rgba(0,0,0,.2);
+  transform: translateY(-1px);
+}
+.price-card .btn--glow {
+  padding: 1rem 1.5rem;
+  font-size: .9375rem;
+  box-shadow: 0 0 30px rgba(168,85,247,.3), 0 4px 20px rgba(0,0,0,.3);
+}
+.price-card .btn--glow:hover {
+  box-shadow: 0 0 50px rgba(168,85,247,.45), 0 8px 30px rgba(0,0,0,.3);
+  transform: translateY(-2px);
 }
 
 /* Money-back Guarantee */
