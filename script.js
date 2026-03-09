@@ -415,21 +415,28 @@
     var items = document.querySelectorAll('.uc2-item');
     if (!tabs.length) return;
 
+    var grid = document.querySelector('.uc2-grid');
     tabs.forEach(function (tab) {
       tab.addEventListener('click', function () {
         var cat = tab.getAttribute('data-uc');
+
+        // Disable entrance animation after first interaction
+        if (grid) grid.classList.add('uc2-grid--filtered');
 
         // Update active tab
         tabs.forEach(function (t) { t.classList.remove('uc2-tab--active'); });
         tab.classList.add('uc2-tab--active');
 
         // Filter items
-        items.forEach(function (item, i) {
+        var visibleIndex = 0;
+        items.forEach(function (item) {
           var itemCat = item.getAttribute('data-uc-cat');
           if (cat === 'all' || itemCat === cat) {
             item.classList.remove('uc2-item--hidden');
-            item.style.animationDelay = (i * 0.08) + 's';
+            item.style.transitionDelay = (visibleIndex * 0.04) + 's';
+            visibleIndex++;
           } else {
+            item.style.transitionDelay = '0s';
             item.classList.add('uc2-item--hidden');
           }
         });
