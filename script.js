@@ -20,6 +20,7 @@
     initWidgets();
     initBillingToggle();
     initUseCaseTabs();
+    initFeatureShowcase();
   }
 
   /* ================================================================
@@ -442,6 +443,58 @@
         });
       });
     });
+  }
+
+  /* ================================================================
+     FEATURE SHOWCASE — Tab + Panel switching with auto-rotation
+     ================================================================ */
+  function initFeatureShowcase() {
+    var wrap = document.getElementById('featureShowcase');
+    if (!wrap) return;
+
+    var tabs = wrap.querySelectorAll('.fshow__tab');
+    var panels = wrap.querySelectorAll('.fshow__panel');
+    var glow = document.getElementById('fshowGlow');
+    var autoTimer = null;
+    var INTERVAL = 6000;
+
+    function activate(index) {
+      tabs.forEach(function (t) { t.classList.remove('fshow__tab--active'); });
+      panels.forEach(function (p) { p.classList.remove('fshow__panel--active'); });
+      tabs[index].classList.add('fshow__tab--active');
+      panels[index].classList.add('fshow__panel--active');
+      // Update glow color
+      if (glow) {
+        var rgb = getComputedStyle(tabs[index]).getPropertyValue('--fa').trim();
+        glow.style.background = 'radial-gradient(circle, ' + rgb + ', transparent 70%)';
+      }
+    }
+
+    function startAuto() {
+      stopAuto();
+      autoTimer = setInterval(function () {
+        var current = wrap.querySelector('.fshow__tab--active');
+        var idx = current ? Number(current.getAttribute('data-feat')) : 0;
+        var next = (idx + 1) % tabs.length;
+        activate(next);
+      }, INTERVAL);
+    }
+
+    function stopAuto() {
+      if (autoTimer) { clearInterval(autoTimer); autoTimer = null; }
+    }
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var idx = Number(tab.getAttribute('data-feat'));
+        activate(idx);
+        stopAuto();
+        startAuto(); // restart timer from this point
+      });
+    });
+
+    // Start auto-rotation
+    startAuto();
   }
 
 })();

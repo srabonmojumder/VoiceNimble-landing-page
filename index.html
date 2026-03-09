@@ -287,150 +287,177 @@
       <div class="container">
         <div class="section__head reveal">
           <span class="tag">Core Features</span>
-          <h2 class="section__title">Everything You Need to Run<br><span class="gradient-text">Intelligent Voice Operations</span></h2>
-          <p class="section__sub">Six powerful modules working together to automate your entire voice operation.</p>
+          <h2 class="section__title">Six Modules. One<br><span class="gradient-text">Unstoppable Voice Platform</span></h2>
+          <p class="section__sub">Each module is purpose-built — together they form the most complete AI voice operations suite on the market.</p>
         </div>
 
-        <!-- Bento Grid -->
-        <div class="fbento reveal">
+        <!-- Feature Showcase — Tab + Preview -->
+        <div class="fshow reveal" id="featureShowcase">
 
-          <!-- Card 1: Outbound — hero wide -->
-          <div class="fbento__card fbento__card--1" style="--fa:#CF8A02;--fa-rgb:207,138,2;--fi:0">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">01</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__orb fbento__orb--2"></div>
-              <div class="fbento__body">
-                <div class="fbento__tag-row">
-                  <span class="fbento__tag">Outbound</span>
-                  <span class="fbento__badge">Core Module</span>
-                </div>
-                <h3 class="fbento__title">AI-Powered Outbound Calling</h3>
-                <p class="fbento__desc">Make thousands of intelligent calls — without lifting a finger. AI dials contacts, speaks naturally, handles objections, and routes escalations in real time.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>Dynamic voice conversations with human-like TTS</li>
-                  <li><span class="fbento__check"></span>Call status tracking, recording &amp; playback</li>
-                  <li><span class="fbento__check"></span>Customizable greetings and conversation flows</li>
-                </ul>
+          <!-- Left: Feature Tabs -->
+          <div class="fshow__tabs">
+            <button class="fshow__tab fshow__tab--active" data-feat="0" style="--fa:#CF8A02;--fa-rgb:207,138,2">
+              <span class="fshow__tab-num">01</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">Outbound</span>
+                <span class="fshow__tab-title">AI-Powered Outbound Calling</span>
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/outbound_call_center_dashboard_image.png" alt="Outbound Calling Dashboard" loading="lazy">
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
+            <button class="fshow__tab" data-feat="1" style="--fa:#4ECDC4;--fa-rgb:78,205,196">
+              <span class="fshow__tab-num">02</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">Inbound</span>
+                <span class="fshow__tab-title">Inbound AI Call Handling</span>
               </div>
-            </div>
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
+            <button class="fshow__tab" data-feat="2" style="--fa:#FF6B6B;--fa-rgb:255,107,107">
+              <span class="fshow__tab-num">03</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">Broadcast</span>
+                <span class="fshow__tab-title">Broadcast Campaigns</span>
+              </div>
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
+            <button class="fshow__tab" data-feat="3" style="--fa:#A78BFA;--fa-rgb:167,139,250">
+              <span class="fshow__tab-num">04</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">AI Studio</span>
+                <span class="fshow__tab-title">AI Prompt Studio</span>
+              </div>
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
+            <button class="fshow__tab" data-feat="4" style="--fa:#F59E0B;--fa-rgb:245,158,11">
+              <span class="fshow__tab-num">05</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">Knowledge</span>
+                <span class="fshow__tab-title">RAG Knowledge Base</span>
+              </div>
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
+            <button class="fshow__tab" data-feat="5" style="--fa:#38BDF8;--fa-rgb:56,189,248">
+              <span class="fshow__tab-num">06</span>
+              <div class="fshow__tab-info">
+                <span class="fshow__tab-label">Flow Builder</span>
+                <span class="fshow__tab-title">Visual Flow Builder</span>
+              </div>
+              <span class="fshow__tab-arrow">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </span>
+              <div class="fshow__tab-progress"></div>
+            </button>
           </div>
 
-          <!-- Card 2: Inbound — tall -->
-          <div class="fbento__card fbento__card--2" style="--fa:#D4A019;--fa-rgb:207,138,2;--fi:1">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">02</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__body">
-                <span class="fbento__tag">Inbound</span>
-                <h3 class="fbento__title">Inbound AI Call Handling</h3>
-                <p class="fbento__desc">Never miss a call. AI answers, qualifies, and routes — 24/7 with no hold times or voicemail.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>AI prompts per inbound number</li>
-                  <li><span class="fbento__check"></span>Intent-based automatic call routing</li>
-                  <li><span class="fbento__check"></span>Webhook-based event processing</li>
-                  <li><span class="fbento__check"></span>Works around the clock</li>
-                </ul>
+          <!-- Right: Preview Panel -->
+          <div class="fshow__preview">
+            <div class="fshow__preview-glow" id="fshowGlow"></div>
+
+            <!-- Panel 0: Outbound -->
+            <div class="fshow__panel fshow__panel--active" data-panel="0" style="--fa:#CF8A02;--fa-rgb:207,138,2">
+              <div class="fshow__panel-img">
+                <img src="image/outbound_call_center_dashboard_image.png" alt="Outbound Calling Dashboard">
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/inbound_agent_interface.png" alt="Inbound Agent Interface" loading="lazy">
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">AI-Powered Outbound Calling</h3>
+                <p class="fshow__panel-desc">Make thousands of intelligent calls — without lifting a finger. AI dials, speaks naturally, handles objections in real time.</p>
+                <ul class="fshow__panel-list">
+                  <li>Dynamic voice conversations with human-like TTS</li>
+                  <li>Call status tracking, recording &amp; playback</li>
+                  <li>Customizable greetings and conversation flows</li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <!-- Card 3: Broadcast -->
-          <div class="fbento__card fbento__card--3" style="--fa:#CF8A02;--fa-rgb:207,138,2;--fi:2">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">03</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__body">
-                <span class="fbento__tag">Broadcast</span>
-                <h3 class="fbento__title">Broadcast Campaigns</h3>
-                <p class="fbento__desc">Reach thousands in minutes with full timezone support and multi-channel delivery.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>Tag-based contact targeting</li>
-                  <li><span class="fbento__check"></span>SMS &amp; WhatsApp in same workflow</li>
-                </ul>
+            <!-- Panel 1: Inbound -->
+            <div class="fshow__panel" data-panel="1" style="--fa:#4ECDC4;--fa-rgb:78,205,196">
+              <div class="fshow__panel-img">
+                <img src="image/inbound_agent_interface.png" alt="Inbound Agent Interface">
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/Broadcast_Manager.png" alt="Broadcast Manager" loading="lazy">
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">Inbound AI Call Handling</h3>
+                <p class="fshow__panel-desc">Never miss a call. AI answers, qualifies, and routes — 24/7 with no hold times or voicemail.</p>
+                <ul class="fshow__panel-list">
+                  <li>AI prompts per inbound number</li>
+                  <li>Intent-based automatic call routing</li>
+                  <li>24/7 availability with no hold times</li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <!-- Card 4: AI Studio -->
-          <div class="fbento__card fbento__card--4" style="--fa:#CF8A02;--fa-rgb:207,138,2;--fi:3">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">04</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__body">
-                <span class="fbento__tag">AI Studio</span>
-                <h3 class="fbento__title">AI Prompt Studio</h3>
-                <p class="fbento__desc">Build your AI agent's personality and knowledge — no code required.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>RAG-based knowledge retrieval</li>
-                  <li><span class="fbento__check"></span>Custom voice model selection</li>
-                </ul>
+            <!-- Panel 2: Broadcast -->
+            <div class="fshow__panel" data-panel="2" style="--fa:#FF6B6B;--fa-rgb:255,107,107">
+              <div class="fshow__panel-img">
+                <img src="image/Broadcast_Manager.png" alt="Broadcast Manager">
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/ai_prompt_studio.png" alt="AI Prompt Studio" loading="lazy">
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">Broadcast Campaigns</h3>
+                <p class="fshow__panel-desc">Reach thousands in minutes with full timezone support and multi-channel delivery.</p>
+                <ul class="fshow__panel-list">
+                  <li>Tag-based contact targeting</li>
+                  <li>SMS &amp; WhatsApp in same workflow</li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <!-- Card 5: Knowledge — wide -->
-          <div class="fbento__card fbento__card--5" style="--fa:#CF8A02;--fa-rgb:207,138,2;--fi:4">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">05</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__orb fbento__orb--2"></div>
-              <div class="fbento__body">
-                <span class="fbento__tag">Knowledge</span>
-                <h3 class="fbento__title">RAG Knowledge Base</h3>
-                <p class="fbento__desc">Upload docs, FAQs, and catalogs. AI retrieves the right answers during every live conversation — zero hallucinations.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>Upload PDF documents and knowledge files</li>
-                  <li><span class="fbento__check"></span>Dynamic retrieval during live calls</li>
-                  <li><span class="fbento__check"></span>Update without retraining models</li>
-                </ul>
+            <!-- Panel 3: AI Studio -->
+            <div class="fshow__panel" data-panel="3" style="--fa:#A78BFA;--fa-rgb:167,139,250">
+              <div class="fshow__panel-img">
+                <img src="image/ai_prompt_studio.png" alt="AI Prompt Studio">
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/Knowledge_Base.png" alt="Knowledge Base" loading="lazy">
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">AI Prompt Studio</h3>
+                <p class="fshow__panel-desc">Build your AI agent's personality and knowledge — no code required.</p>
+                <ul class="fshow__panel-list">
+                  <li>RAG-based knowledge retrieval</li>
+                  <li>Custom voice model selection</li>
+                </ul>
               </div>
             </div>
-          </div>
 
-          <!-- Card 6: Flow Builder -->
-          <div class="fbento__card fbento__card--6" style="--fa:#CF8A02;--fa-rgb:207,138,2;--fi:5">
-            <div class="fbento__border"></div>
-            <div class="fbento__inner">
-              <div class="fbento__bg-num">06</div>
-              <div class="fbento__orb"></div>
-              <div class="fbento__body">
-                <span class="fbento__tag">Flow Builder</span>
-                <h3 class="fbento__title">Visual Flow Builder</h3>
-                <p class="fbento__desc">Design conversation flows visually with drag-and-drop. Define branches, conditionals, and actions.</p>
-                <ul class="fbento__list">
-                  <li><span class="fbento__check"></span>Node-based visual editor</li>
-                  <li><span class="fbento__check"></span>Preview &amp; test before going live</li>
+            <!-- Panel 4: Knowledge -->
+            <div class="fshow__panel" data-panel="4" style="--fa:#F59E0B;--fa-rgb:245,158,11">
+              <div class="fshow__panel-img">
+                <img src="image/Knowledge_Base.png" alt="Knowledge Base">
+              </div>
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">RAG Knowledge Base</h3>
+                <p class="fshow__panel-desc">Upload docs, FAQs, and catalogs. AI retrieves the right answers during every live conversation.</p>
+                <ul class="fshow__panel-list">
+                  <li>Upload PDF documents and knowledge files</li>
+                  <li>Dynamic retrieval during live calls</li>
+                  <li>Update without retraining models</li>
                 </ul>
               </div>
-              <div class="fbento__img">
-                <div class="fbento__img-glow"></div>
-                <img src="image/Flow_Builder_Overview.png" alt="Flow Builder" loading="lazy">
+            </div>
+
+            <!-- Panel 5: Flow Builder -->
+            <div class="fshow__panel" data-panel="5" style="--fa:#38BDF8;--fa-rgb:56,189,248">
+              <div class="fshow__panel-img">
+                <img src="image/Flow_Builder_Overview.png" alt="Flow Builder">
+              </div>
+              <div class="fshow__panel-body">
+                <h3 class="fshow__panel-title">Visual Flow Builder</h3>
+                <p class="fshow__panel-desc">Design conversation flows visually with drag-and-drop. Define branches, conditionals, and actions.</p>
+                <ul class="fshow__panel-list">
+                  <li>Node-based visual editor</li>
+                  <li>Preview &amp; test before going live</li>
+                </ul>
               </div>
             </div>
           </div>
